@@ -25,7 +25,9 @@ auto main(int argc, char** argv) -> int
             lines::Line::ampli2_start = std::stoul(argv[3]);
             lines::Line::ampli2_end = std::stoul(argv[4]);
         } else {
-            std::cout << "No values given for amplicon starts and end of sequence. Using default values.\n\n";
+            std::cout << "No values given for amplicon starts and end of sequence. Using default values.\n"
+                        << "Optional: 3 parameters for ampli1_start, ampli2_start and sequence length. "
+                        << "If they are not provided default values are used (19, 227, 437).\n\n";
         }
 
         std::cout << "\nAmplicon 1 start: " << lines::Line::ampli1_start
