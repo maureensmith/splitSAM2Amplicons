@@ -15,6 +15,11 @@ namespace lines
 class Line final
 {
   public:
+    static unsigned long ampli1_start;
+    static unsigned long ampli2_start;
+    static unsigned long ampli2_end;
+
+
     Line() = default; // ctor for empty line... maybe not needed
     /*!
      * \brief Initialise a new Line from a given string.

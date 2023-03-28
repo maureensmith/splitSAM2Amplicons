@@ -24,6 +24,10 @@ auto next_tab(std::string_view line) -> std::string_view::size_type
 
 } // namespace
 
+unsigned long Line::ampli1_start = 19;
+unsigned long Line::ampli2_start = 227;
+unsigned long Line::ampli2_end = 437;
+
 
 auto Line::name() const -> std::string_view
 {
@@ -51,17 +55,18 @@ auto Line::category() const -> Category
     }
 
 
-    auto constexpr AMPLI1_START = 19ul;
-    auto constexpr AMPLI2_START = 227ul;
-    auto constexpr AMPLI2_START_EXCLUSIVE = AMPLI2_START - 1;
+    //auto constexpr AMPLI1_START = 19ul;
+    //auto constexpr AMPLI2_START = 227ul;
+    auto ampli1_end_exlusive = Line::ampli2_start - 1;
 
-    if (val == std::clamp(val, AMPLI1_START, AMPLI2_START_EXCLUSIVE))
+    if (val == std::clamp(val, Line::ampli1_start, ampli1_end_exlusive))
     {
         return Category::AMPLI_1;
     }
 
-    auto constexpr AMPLI2_END_EXCLUSIVE = 437ul - 1; // -1 to get clamp to behave as L <= x < M 
-    if (val == std::clamp(val, AMPLI2_START, AMPLI2_END_EXCLUSIVE))
+    //auto constexpr AMPLI2_END_EXCLUSIVE = 437ul - 1; // -1 to get clamp to behave as L <= x < M 
+    auto ampli2_end_exlusive = Line::ampli2_end - 1; // -1 to get clamp to behave as L <= x < M 
+    if (val == std::clamp(val, Line::ampli2_start, ampli2_end_exlusive))
     {
         return Category::AMPLI_2;
     }
