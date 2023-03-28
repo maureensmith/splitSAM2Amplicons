@@ -23,7 +23,7 @@ auto Files::setup(std::string_view const path) -> Files
     }
 
     auto const filename = name.filename();
-    auto const parent = name.parent_path().parent_path();
+    auto const parent = name.parent_path();
 
     auto ampli_1 = parent / "SAM_ampli1";
     auto ampli_2 = parent / "SAM_ampli2";
