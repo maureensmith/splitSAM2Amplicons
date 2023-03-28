@@ -68,7 +68,7 @@ Files::Files(std::ifstream&& input,
 auto Files::filter() -> void
 {
     using namespace lines;
-    auto constexpr OUT = 50'000ul;
+    auto constexpr OUT = 100'000ul;
     auto processed = 0ul;
 
     while (m_input.next_line_pair())
